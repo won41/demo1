@@ -93,6 +93,12 @@
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>6.1.13</version>
+        </dependency>
 
     </dependencies>
 
