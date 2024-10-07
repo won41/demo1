@@ -13,18 +13,30 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+
 @Log4j2
 @ExtendWith({SpringExtension.class})
 //@ContextConfiguration(classes = AppConfig.class)
 @ContextConfiguration(locations={"/test-context.xml","file:src/main/webapp/WEB-INF/root-context.xml"})
 //@RequiredArgsConstructor
 public class SampleTest {
+    @Autowired
+    private DataSource dataSource;
+
     @Autowired(required = false)
     private SampleService sampleService;
 
     /*@Autowired
     @Qualifier("myDto1")
     private SampleDTO sampleDTO1;*/
+
+    @Test
+    public void ConnectionTest() throws Exception {
+        Connection connection = dataSource.getConnection();
+        log.info(connection);
+    }
 
     @Test
     public void setSampleServiceTest(){
